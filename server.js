@@ -3,8 +3,17 @@ const cors = require("cors");
 const multer = require("multer");
 const fs = require("fs");
 
-const app = express();
-app.use(cors());
+
+const cors = require("cors");
+
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));
+app.get("/", (req, res) => {
+    res.send("Backend is running ✅");
+});
 
 const upload = multer({ dest: "uploads/" });
 
