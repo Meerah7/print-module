@@ -1,0 +1,40 @@
+
+<h2>Orders List</h2>
+
+<table border="1">
+<thead>
+<tr>
+<th>File</th>
+<th>Pages</th>
+<th>Type</th>
+<th>Copies</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody id="ordersTable"></tbody>
+</table>
+
+<script>
+async function loadOrders() {
+    const res = await fetch("http://localhost:5000/orders");
+    const data = await res.json();
+
+    const table = document.getElementById("ordersTable");
+
+    data.forEach(order => {
+        table.innerHTML += `
+        <tr>
+            <td>${order.fileName}</td>
+            <td>${order.pages}</td>
+            <td>${order.type}</td>
+            <td>${order.copies}</td>
+            <td>${order.price}</td>
+        </tr>`;
+    });
+}
+
+loadOrders();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<body>
+
+<div class="container">
+
+    <div class="main">
+
+        <!-- LEFT: PDF PREVIEW -->
+        <div class="preview">
+    <canvas id="pdfCanvas"></canvas>
+</div><div class="preview">
+    <canvas id="pdfCanvas"></canvas>
+</div>
+
+        <!-- RIGHT: OPTIONS -->
+        <div class="card">
+
+            <h3>Upload PDF</h3>
+            <input type="file" id="fileInput" accept="application/pdf" />
+            <p id="fileName"></p>
+            <p id="pageCount"></p>
+
+            <h3>Print Options</h3>
+
+            <div class="row">
+                <select id="printType">
+                    <option value="bw">Black & White</option>
+                    <option value="color">Color</option>
+                </select>
+
+                <input type="number" id="copies" value="1" min="1" />
+            </div>
+
+            <p id="price">Total Price: ₹0</p>
+
+            <button onclick="saveOrder()">Place Order</button>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://unpkg.com/pdf-lib"></script>
+<script src="script.js"></script>
+
+</body>
